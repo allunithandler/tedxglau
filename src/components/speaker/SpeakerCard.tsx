@@ -1,28 +1,45 @@
-import React from 'react'
-import BoxReveal from '../ui/box-reveal'
-import { SpeakerImg } from './SpeakerImg'
-import { Card } from '../ui/card'
-import { cn } from '@/lib/utils'
+"use client"
 
+import React from 'react'
+import { SpeakerImg } from './SpeakerImg'
+import { motion } from 'framer-motion'
 
 interface SpeakerCardProps {
     speaker: any
     reverse?: boolean
 }
 
-const SpeakerCard = ({ speaker, reverse }: SpeakerCardProps) => {
+const SpeakerCard = ({ speaker }: SpeakerCardProps) => {
     return (
-        <div className={cn('flex md:flex-row flex-col justify-center gap-8 items-center', reverse && "md:flex-row-reverse")} >
-            <SpeakerImg src={speaker?.image} />
-            <Card className='md:w-1/2 w-4/5  bg-transparent dark:bg-transparent border-none md:px-4 cursor-default'>
-                <BoxReveal boxColor={"#eb0027"} duration={0.5}>
-                    <p className="text-base text-center md:text-justify uppercase pt-4 mx-auto leading-6"><span className='text-tedx bg-none'>{speaker?.name}</span><span className='text-transparent bg-clip-text bg-gray-800 dark:bg-gray-400'>, {speaker.bioOne}</span></p>
-                </BoxReveal>
-                <BoxReveal boxColor={"#eb0027"} duration={0.5}>
-                    <p className="text-base text-center md:text-justify uppercase pb-4 mx-auto text-transparent bg-clip-text bg-gradient-to-t from-gray-300 to-gray-900 dark:from-gray-900 dark:to-gray-300">{speaker.bioTwo}</p>
-                </BoxReveal>
-            </Card>
-        </div>
+        <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="group relative bg-neutral-900 border border-neutral-800 hover:border-[#E62B1E] transition-all duration-300 overflow-hidden"
+        >
+            <div className="relative aspect-square w-full overflow-hidden">
+                <div className="absolute inset-0 grayscale group-hover:grayscale-0 transition-all duration-500">
+                    <SpeakerImg src={speaker?.image} />
+                </div>
+            </div>
+
+            <div className="p-6 relative z-10 bg-neutral-900">
+                <h3 className="text-xl font-bold text-white mb-1 uppercase tracking-tighter">
+                    {speaker?.name}
+                </h3>
+                <p className="text-xs text-[#E62B1E] font-bold uppercase tracking-widest mb-3">
+                    {speaker?.bioOne}
+                </p>
+                <p className="text-sm text-neutral-400 line-clamp-3 group-hover:text-neutral-300 transition-colors">
+                    {speaker?.bioTwo}
+                </p>
+            </div>
+
+            <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <div className="w-2 h-2 bg-[#E62B1E]" />
+            </div>
+        </motion.div>
     )
 }
 

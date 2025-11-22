@@ -1,12 +1,13 @@
 "use client"
 
-import React from 'react'
-import { Spotlight } from './ui/spotlight'
+import React, { useState } from 'react'
 import { TextGenerateEffect } from './ui/text-generate-effect'
 import { cn } from '@/lib/utils'
-import { Vortex } from './ui/vortex'
-import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+import { Hero3DScene } from './ui/3d-hero-elements'
+import { motion, AnimatePresence } from 'framer-motion'
+import IdeaSpark from './Game/IdeaSpark'
 
 interface HeroSectionProps {
   tagline: string
@@ -15,65 +16,80 @@ interface HeroSectionProps {
 }
 
 const HeroSection = ({ tagline, heading, className }: HeroSectionProps) => {
-  const { theme } = useTheme()
   const pathname = usePathname();
+  const [isGameOpen, setIsGameOpen] = useState(false);
 
   if (pathname === '/') {
-
     return (
-      <div className={cn(" sm:h-[80vh] w-full rounded-md flex md:items-center md:justify-center bg-white antialiased bg-grid-white/[0.02] relative overflow-hidden", className)}>
-        <div className='absolute sm:h-full z-10 opacity-30'>
-          <video autoPlay loop preload="auto" src="/TEDxGLAU WEB VID.mp4"></video>
-        </div>
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20 fixed"
-          fill="white"
-        />
-        <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-          <h1 className="text-4xl uppercase md:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-red-600 to-red-800 bg-opacity-50">
-            Ted<span className='text-2xl sm:text-5xl'>X</span><span className='bg-gradient-to-b bg-clip-text  text-transparent from-gray-600 to-black dark:from-red-600 dark:to-red-800 bg-opacity-50'>Glau</span> <p className='flex justify-center items-center'><span className='text-tedx text-sm font-bold'>x </span><span className='text-xs'>=</span><span className='text-sm'> Independently organized TED event</span></p> <span className='bg-gradient-to-t dark:from-red-300 dark:to-slate-600 from-slate-900 to-slate-400 bg-clip-text text-transparent'>{heading}</span>
-          </h1>
-          <TextGenerateEffect words={tagline} className='text-center uppercase text-sm font-bold md:text-2xl text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-900 dark:from-gray-900 dark:to-gray-300' />
+      <div className={cn("min-h-screen w-full flex flex-col items-center justify-center bg-black relative overflow-hidden", className)}>
+        <Hero3DScene />
+
+        <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col items-center justify-center h-full pointer-events-none">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="text-center"
+          >
+            <p className="text-neutral-400 text-sm md:text-base font-medium tracking-widest uppercase mb-4">
+              Independently organized TED event
+            </p>
+            <h1 className="text-6xl md:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-500 tracking-tighter">
+              TEDx<span className="text-[#E62B1E]">GLAU</span>
+            </h1>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
+            className="mt-8 pointer-events-auto flex gap-4"
+          >
+            <Link href="/events" className="px-8 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300">
+              Explore Events
+            </Link>
+            <Link href="/about" className="px-8 py-3 rounded-full bg-[#E62B1E] text-white hover:bg-[#c41e12] transition-all duration-300 shadow-[0_0_20px_rgba(230,43,30,0.5)]">
+              About Us
+            </Link>
+          </motion.div>
+
+          <motion.button
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.8 }}
+            onClick={() => setIsGameOpen(true)}
+            className="mt-8 pointer-events-auto px-6 py-3 bg-gradient-to-r from-[#E62B1E] to-[#c41e12] text-white rounded-full font-bold hover:scale-105 transition-transform flex items-center gap-3 shadow-lg shadow-[#E62B1E]/50"
+          >
+            <span className="text-2xl">🎮</span>
+            <span>Play Idea Spark</span>
+          </motion.button>
+
+          <AnimatePresence>
+            {isGameOpen && <IdeaSpark onClose={() => setIsGameOpen(false)} />}
+          </AnimatePresence>
+
+          <div className="mt-16 max-w-2xl mx-auto bg-black/30 backdrop-blur-sm p-4 rounded-xl border border-white/5">
+            <TextGenerateEffect words={tagline} className='text-center text-sm md:text-xl text-neutral-300' />
+          </div>
         </div>
       </div>
     )
-  } else if (pathname === "/events") {
-    return (
-      <Vortex
-        baseHue={300}
-        backgroundColor={theme === "dark" ? "#000" : "#fff"}
-        className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
-      >
-        <div className={cn(" sm:h-[80vh] w-full rounded-md flex md:items-center md:justify-center bg-white antialiased bg-grid-white/[0.02] relative overflow-hidden", className)}>
-          <Spotlight
-            className="-top-40 left-0 md:left-60 md:-top-20 fixed"
-            fill="white"
-          />
-          <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-            <h1 className="text-4xl uppercase md:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-red-600 to-red-800 bg-opacity-50">
-              Ted<span className='text-2xl sm:text-5xl'>X</span><span className='bg-gradient-to-b bg-clip-text  text-transparent from-gray-600 to-black dark:from-red-600 dark:to-red-800 bg-opacity-50'>Glau</span> <p className='flex justify-center items-center'><span className='text-tedx text-sm font-bold'>x </span><span className='text-xs'>=</span><span className='text-sm'> Independently organized TED event</span></p> <span className='bg-gradient-to-t dark:from-red-300 dark:to-slate-600 from-slate-900 to-slate-400 bg-clip-text text-transparent'>{heading}</span>
-            </h1>
-            <TextGenerateEffect words={tagline} className='text-center uppercase text-sm font-bold md:text-2xl text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-900 dark:from-gray-900 dark:to-gray-300' />
-          </div>
-        </div>
-      </Vortex>
-    )
-  } else {
-    return (
-      <div className={cn("sm:h-[80vh] w-full rounded-md flex md:items-center md:justify-center bg-white antialiased bg-grid-white/[0.02] relative overflow-hidden", className)}>
-        <Spotlight
-          className="-top-40 left-0 md:left-60 md:-top-20 fixed"
-          fill="white"
-        />
-        <div className=" p-4 max-w-7xl  mx-auto relative z-10  w-full pt-20 md:pt-0">
-          <h1 className="text-4xl uppercase md:text-9xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-red-600 to-red-800 bg-opacity-50">
-            Ted<span className='text-2xl sm:text-5xl'>X</span><span className='bg-gradient-to-b bg-clip-text  text-transparent from-gray-600 to-black dark:from-red-600 dark:to-red-800 bg-opacity-50'>Glau</span> <p className='flex justify-center items-center'><span className='text-tedx text-sm font-bold'>x </span><span className='text-xs'>=</span><span className='text-sm'> Independently organized TED event</span></p> <span className='bg-gradient-to-t dark:from-red-300 dark:to-slate-600 from-slate-900 to-slate-400 bg-clip-text text-transparent'>{heading}</span>
-          </h1>
-          <TextGenerateEffect words={tagline} className='text-center uppercase text-sm font-bold md:text-2xl text-transparent bg-clip-text bg-gradient-to-br from-gray-300 to-gray-900 dark:from-gray-900 dark:to-gray-300' />
-        </div>
-      </div>)
   }
 
+  // Simplified view for other pages
+  return (
+    <div className={cn("h-[50vh] w-full flex flex-col items-center justify-center bg-black relative overflow-hidden", className)}>
+      <div className="absolute inset-0 bg-grid-white/[0.02]" />
+      <div className="p-4 max-w-7xl mx-auto relative z-10 w-full pt-20 md:pt-0 flex flex-col items-center">
+        <h1 className="text-4xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b from-white to-neutral-500">
+          TEDx<span className="text-[#E62B1E]">GLAU</span>
+        </h1>
+        <p className="mt-4 font-normal text-base text-neutral-300 max-w-lg text-center mx-auto">
+          {heading || "Ideas Worth Spreading"}
+        </p>
+      </div>
+    </div>
+  )
 }
 
 export default HeroSection

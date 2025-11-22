@@ -1,0 +1,234 @@
+﻿
+> tedxglau@0.1.0 build
+> next build
+
+  Γû▓ Next.js 14.2.5
+
+   Creating an optimized production build ...
+ Γ£ô Compiled successfully
+   Linting and checking validity of types ...
+node.exe : 
+At C:\Program 
+Files\nodejs\npm.ps1:29 
+char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~
+    + CategoryInfo         
+     : NotSpecified: (:St  
+  ring) [], RemoteExcept   
+ ion
+    + FullyQualifiedErrorI 
+   d : NativeCommandError
+ 
+Failed to compile.
+
+./src/components/AboutSecti
+on.tsx
+28:119  Error: `'` can be 
+escaped with `&apos;`, 
+`&lsquo;`, `&#39;`, 
+`&rsquo;`.  
+react/no-unescaped-entities
+
+./src/components/Game/IdeaS
+park.tsx
+156:8  Warning: React Hook 
+useEffect has a missing 
+dependency: 'update'. 
+Either include it or 
+remove the dependency 
+array.  
+react-hooks/exhaustive-deps
+
+./src/components/HeroSectio
+n.tsx
+63:34  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  
+react/no-unescaped-entities
+63:45  Error: `"` can be 
+escaped with `&quot;`, 
+`&ldquo;`, `&#34;`, 
+`&rdquo;`.  
+react/no-unescaped-entities
+
+./src/components/ProfileCar
+d.tsx
+10:29  Warning: Using 
+`<img>` could result in 
+slower LCP and higher 
+bandwidth. Consider using 
+`<Image />` from 
+`next/image` to 
+automatically optimize 
+images. This may incur 
+additional usage or cost 
+from your provider. See: ht
+tps://nextjs.org/docs/messa
+ges/no-img-element  
+@next/next/no-img-element
+25:37  Warning: Using 
+`<img>` could result in 
+slower LCP and higher 
+bandwidth. Consider using 
+`<Image />` from 
+`next/image` to 
+automatically optimize 
+images. This may incur 
+additional usage or cost 
+from your provider. See: ht
+tps://nextjs.org/docs/messa
+ges/no-img-element  
+@next/next/no-img-element
+25:37  Warning: img 
+elements must have an alt 
+prop, either with 
+meaningful text, or an 
+empty string for 
+decorative images.  
+jsx-a11y/alt-text
+26:37  Warning: Using 
+`<img>` could result in 
+slower LCP and higher 
+bandwidth. Consider using 
+`<Image />` from 
+`next/image` to 
+automatically optimize 
+images. This may incur 
+additional usage or cost 
+from your provider. See: ht
+tps://nextjs.org/docs/messa
+ges/no-img-element  
+@next/next/no-img-element
+26:37  Warning: img 
+elements must have an alt 
+prop, either with 
+meaningful text, or an 
+empty string for 
+decorative images.  
+jsx-a11y/alt-text
+27:37  Warning: Using 
+`<img>` could result in 
+slower LCP and higher 
+bandwidth. Consider using 
+`<Image />` from 
+`next/image` to 
+automatically optimize 
+images. This may incur 
+additional usage or cost 
+from your provider. See: ht
+tps://nextjs.org/docs/messa
+ges/no-img-element  
+@next/next/no-img-element
+27:37  Warning: img 
+elements must have an alt 
+prop, either with 
+meaningful text, or an 
+empty string for 
+decorative images.  
+jsx-a11y/alt-text
+
+./src/components/ui/3d-card
+.tsx
+126:6  Warning: React Hook 
+useEffect has a missing 
+dependency: 
+'handleAnimations'. Either 
+include it or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+./src/components/ui/backgro
+und-gradient-animation.tsx
+59:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 
+'blendingValue', 
+'fifthColor', 
+'firstColor', 
+'fourthColor', 
+'gradientBackgroundEnd', 
+'gradientBackgroundStart', 
+'pointerColor', 
+'secondColor', 'size', and 
+'thirdColor'. Either 
+include them or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+74:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 'curX' and 
+'curY'. Either include 
+them or remove the 
+dependency array. You can 
+also do a functional 
+update 'setCurX(c => ...)' 
+if you only need 'curX' in 
+the 'setCurX' call.  
+react-hooks/exhaustive-deps
+
+./src/components/ui/canvas-
+reveal-effect.tsx
+282:6  Warning: React Hook 
+useMemo has a missing 
+dependency: 'getUniforms'. 
+Either include it or 
+remove the dependency 
+array.  
+react-hooks/exhaustive-deps
+
+./src/components/ui/hover-b
+order-gradient.tsx
+57:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 'duration' 
+and 'rotateDirection'. 
+Either include them or 
+remove the dependency 
+array.  
+react-hooks/exhaustive-deps
+
+./src/components/ui/text-ge
+nerate-effect.tsx
+31:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 'animate', 
+'duration', and 'filter'. 
+Either include them or 
+remove the dependency 
+array. Mutable values like 
+'scope.current' aren't 
+valid dependencies because 
+mutating them doesn't 
+re-render the component.  
+react-hooks/exhaustive-deps
+
+./src/components/ui/vortex.
+tsx
+238:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 'resize' and 
+'setup'. Either include 
+them or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+./src/components/ui/wavy-ba
+ckground.tsx
+101:6  Warning: React Hook 
+useEffect has missing 
+dependencies: 
+'animationId', 'ctx', and 
+'init'. Either include 
+them or remove the 
+dependency array.  
+react-hooks/exhaustive-deps
+
+info  - Need to disable 
+some ESLint rules? Learn 
+more here: https://nextjs.o
+rg/docs/basic-features/esli
+nt#disabling-rules
