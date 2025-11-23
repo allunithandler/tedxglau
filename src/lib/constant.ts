@@ -562,45 +562,50 @@ export const socialMedia = [
 
 export const teamHeads = [
     {
-        name: "Uday Gupta",
-        designation: "Organiser",
-        pic: "/images/heads/1.png",
+        name: "Dr Anoop Gupta",
+        designation: "Organizer",
+        pic: "/images/heads/organizer.png",
     },
     {
-        name: "Sneha Agarwal",
+        name: "Abhishek Gautam",
+        designation: "Co-Organizer",
+        pic: "/images/heads/co-organizer.png",
+    },
+    {
+        name: "Deepak Sharma",
         designation: "Ambassador",
-        pic: "/images/heads/3.png",
+        pic: "/images/heads/Ambassador.png",
     },
     {
-        name: "Ansh Gaur",
-        designation: "Co-Organiser",
-        pic: "/images/heads/2.png",
-    },
-    {
-        name: "Drashya Kathuria",
-        designation: "Curator",
-        pic: "/images/heads/4.png",
-    },
-    {
-        name: "Hardik Mishra",
-        designation: "Head Data & Finance",
-        pic: "/images/heads/5.png",
-    },
-    {
-        name: "Bhuvnesh",
-        designation: "Head Media & Publicity",
-        pic: "/images/heads/8.png",
-    },
-    {
-        name: "Saurav Kumar",
-        designation: "Head Design",
-        pic: "/images/heads/7.png",
-    },
-    {
-        name: "Nitish Kumar",
-        designation: "Web & IT Head",
-        pic: "/images/heads/6.png",
+        name: "Ravikumar Tiwari",
+        designation: "Vice President",
+        pic: "/images/heads/VicePresident.png",
     }
+]
+
+export const hostTeam = [
+    "/images/teams/host/1.png",
+    "/images/teams/host/2.png",
+    "/images/teams/host/3.png",
+    "/images/teams/host/4.png",
+    "/images/teams/host/5.png",
+    "/images/teams/host/6.png",
+    "/images/teams/host/7.png",
+    "/images/teams/host/8.png",
+]
+
+export const cohostTeam = [
+    "/images/teams/cohost/9.png",
+    "/images/teams/cohost/10.png",
+    "/images/teams/cohost/11.png",
+    "/images/teams/cohost/12.png",
+    "/images/teams/cohost/13.png",
+    "/images/teams/cohost/14.png",
+    "/images/teams/cohost/15.png",
+    "/images/teams/cohost/16.png",
+    "/images/teams/cohost/17.png",
+    "/images/teams/cohost/18.png",
+    "/images/teams/cohost/19.png",
 ]
 
 export const teams = [
