@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 const ProfileCard = () => {
     return (
@@ -7,7 +8,7 @@ const ProfileCard = () => {
                 <div className="bg-gray-900 border border-gray-900 shadow-lg  rounded-3xl p-4 m-4">
                     <div className="flex-none sm:flex">
                         <div className=" relative h-32 w-32   sm:mb-0 mb-3">
-                            <img src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="aji" className=" w-32 h-32 object-cover rounded-2xl" />
+                            <Image src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="Profile" width={128} height={128} className="w-32 h-32 object-cover rounded-2xl" />
                         </div>
                         <div className="flex-auto sm:ml-5 justify-evenly">
                             <div className="flex items-center justify-between sm:mt-2">
