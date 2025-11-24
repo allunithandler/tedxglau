@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/providers/theme-provider"
 import { Suspense } from "react";
 import Loading from "./loading";
 import { Analytics } from "@vercel/analytics/react"
+import GlobalParticles from "@/components/GlobalParticles";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,6 +29,7 @@ export default function RootLayout({
             forcedTheme="dark"
             disableTransitionOnChange
           >
+            <GlobalParticles />
             {children}
           </ThemeProvider>
         </Suspense>

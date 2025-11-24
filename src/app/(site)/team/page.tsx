@@ -7,6 +7,7 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { CardSpotlight } from "@/components/ui/card-spotlight";
 import { socialMedia, teamHeads, hostTeam, cohostTeam } from "@/lib/constant";
 import { Open_Sans } from "next/font/google"
+import Image from "next/image"
 
 const openSans = Open_Sans({ subsets: ["latin"] })
 
@@ -28,7 +29,7 @@ export default function TeamPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                         {hostTeam.map((image, idx) => (
                             <div key={idx} className="flex justify-center">
-                                <img src={image} alt={`Host member ${idx + 1}`} className="rounded-lg shadow-lg" />
+                                <Image src={image} alt={`Host member ${idx + 1}`} width={300} height={400} className="rounded-lg shadow-lg" />
                             </div>
                         ))}
                     </div>
@@ -42,7 +43,7 @@ export default function TeamPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
                         {cohostTeam.map((image, idx) => (
                             <div key={idx} className="flex justify-center">
-                                <img src={image} alt={`Co-host member ${idx + 1}`} className="rounded-lg shadow-lg" />
+                                <Image src={image} alt={`Co-host member ${idx + 1}`} width={300} height={400} className="rounded-lg shadow-lg" />
                             </div>
                         ))}
                     </div>
