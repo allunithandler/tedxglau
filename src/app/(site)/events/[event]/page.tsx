@@ -10,17 +10,20 @@ import Image from "next/image";
 
 export default function EventPage({ params }: { params: { event: string } }) {
     const event = events[params.event];
+    if (!event) {
+        return <div className="flex items-center justify-center h-screen text-white text-2xl">Event not found</div>;
+    }
     const speakers = event.speakers || [];
     return (
         <>
-            <HeroSection heading={params.event} tagline={event.tagLine} />
+            <HeroSection heading={params.event} tagline={event?.tagLine || ""} />
             <div className="flex flex-col overflow-hidden">
                 <ContainerScroll
                     titleComponent={
                         <>
                             <h1 className="text-4xl font-semibold text-black dark:text-white">
                                 Experience Past Events <br />
-                                <span className="text-4xl md:text-[6rem] font-bold mt-1 leading-none uppercase bg-clip-text text-transparent bg-gradient-to-tr from-tedx to-red-600 dark:from-red-700 dark:to-tedx">
+                                <span className="text-4xl md:text-5xl lg:text-6xl font-bold mt-1 leading-none uppercase bg-clip-text text-transparent bg-gradient-to-tr from-tedx to-red-600 dark:from-red-700 dark:to-tedx">
                                     TedTalks
                                 </span>
                             </h1>
