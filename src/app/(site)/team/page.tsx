@@ -17,7 +17,7 @@ export default function TeamPage() {
         <div className="flex flex-col mb-16">
             <HeroSection className="dark:bg-transparent bg-transparent" heading="TEAM" tagline="Meet The Team" />
             <div className="flex flex-col gap-4 items-center sm:px-0 px-2">
-                <h1 className="text-4xl md:text-6xl uppercase font-bold text-center mt-4 bg-gradient-to-b from-red-600 to-black bg-clip-text text-transparent">Team Heads</h1>
+                <h1 className="text-4xl md:text-6xl uppercase font-bold text-center mt-4 bg-gradient-to-b from-red-600 to-black bg-clip-text text-transparent">Organizers</h1>
                 {
                     teamHeads.map((head, idx) => (
                         <TeamCard key={idx} src={head.pic} name={head.name} designation={head.designation} />
